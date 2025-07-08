@@ -33,7 +33,7 @@ class MyAppState extends ChangeNotifier {
 class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    var appState = context.watch();
+    var appState = context.watch<MyAppState>();
     return Scaffold(
       body: Column(
         children: [
@@ -41,7 +41,7 @@ class MyHomePage extends StatelessWidget {
           Text(appState.current.asLowerCase)
         ],
       ),
-    )
+    );
   }
 
 }
