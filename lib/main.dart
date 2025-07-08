@@ -35,11 +35,14 @@ class MyHomePage extends StatelessWidget {
   Widget build(BuildContext context) {
     var appState = context.watch<MyAppState>();
     return Scaffold(
-      body: Column(
-        children: [
-          Text('A random idea'),
-          Text(appState.current.asLowerCase)
-        ],
+      body: Center(
+        child: Column(
+      mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text('A random idea'),
+            Text(appState.current.asLowerCase)
+          ],
+        ),
       ),
     );
   }
