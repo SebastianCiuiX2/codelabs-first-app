@@ -1,3 +1,4 @@
+import 'package:codelabs_first_flutter_app/pages/FavouritesPage.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'GeneratorPage.dart';
@@ -22,7 +23,7 @@ class _MyHomePageState extends State<MyHomePage> {
         page = GeneratorPage();
         break;
       case 1:
-        page = Placeholder();
+        page = FavouritesPage();
         break;
       default:
         throw UnimplementedError('no widget for $selectedIndex');
