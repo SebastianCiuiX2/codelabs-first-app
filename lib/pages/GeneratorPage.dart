@@ -37,7 +37,7 @@ class GeneratorPage extends StatelessWidget {
                 onPressed: () {
                   appState.getNext();
                 },
-                child: Text("Click me"),
+                child: Text("Next"),
               ),
             ],
           ),

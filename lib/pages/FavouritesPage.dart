@@ -15,10 +15,6 @@ class FavouritesPage extends StatelessWidget {
         Expanded(
           child: Column(
             children: [
-              Padding(
-                padding: const EdgeInsets.all(20),
-                child: Text("You have ${words.length} favourite words:"),
-              ),
               Expanded(
                 child: GridView(
                   gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
@@ -26,6 +22,10 @@ class FavouritesPage extends StatelessWidget {
                     childAspectRatio: 400 / 80,
                   ),
                   children: [
+                    Padding(
+                      padding: const EdgeInsets.all(20),
+                      child: Text("You have ${words.length} favourite words:"),
+                    ),
                     for (var word in words)
                       ListTile(
                         leading: IconButton(
@@ -34,11 +34,9 @@ class FavouritesPage extends StatelessWidget {
                           onPressed: () {
                             appState.removeFavorite(word);
                           },
-
-
                         ),
                         title: Text(
-                            word.asLowerCase,
+                          word.asLowerCase,
                           semanticsLabel: word.asPascalCase,
                         ),
                       ),

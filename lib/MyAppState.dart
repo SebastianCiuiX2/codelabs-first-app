@@ -17,8 +17,8 @@ class MyAppState extends ChangeNotifier {
     } else {
       favorites.add(current);
       print("Liked $current");
-
     }
+    notifyListeners();
   }
 
   void clearFavorites(){
