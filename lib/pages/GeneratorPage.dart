@@ -1,3 +1,4 @@
+import 'package:codelabs_first_flutter_app/widgets/HistoryListView.dart';
 import 'package:english_words/src/word_pair.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
@@ -21,18 +22,19 @@ class GeneratorPage extends StatelessWidget {
       child: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
+          Expanded(flex: 3, child: HistoryListView()),
+          SizedBox(height: 10),
           BigCard(pair: pair),
           SizedBox(height: 10),
           Row(
             mainAxisSize: MainAxisSize.min,
-
             children: [
               ElevatedButton.icon(
                 onPressed: appState.toggleFavorite,
                 icon: Icon(icon),
                 label: Text("Like"),
               ),
-              SizedBox(width: 10,),
+              SizedBox(width: 10),
               ElevatedButton(
                 onPressed: () {
                   appState.getNext();

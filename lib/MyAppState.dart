@@ -4,19 +4,26 @@ import 'package:flutter/material.dart';
 class MyAppState extends ChangeNotifier {
   var current = WordPair.random();
   var favorites = <WordPair>[];
+  var history = <WordPair>[];
 
+  GlobalKey? historyListKey;
   void getNext() {
+    history.insert(0, current);
+    var animatedList = historyListKey?.currentState as AnimatedListState?;
+    animatedList?.insertItem(0);
     current = WordPair.random();
     notifyListeners();
   }
 
-  void toggleFavorite() {
-    if (favorites.contains(current)) {
-      favorites.remove(current);
-      print("Unliked $current");
+  void toggleFavorite([WordPair? pair]) {
+    pair = pair ?? current;
+
+    if (favorites.contains(pair)) {
+      favorites.remove(pair);
+      print("Unliked $pair");
     } else {
-      favorites.add(current);
-      print("Liked $current");
+      favorites.add(pair);
+      print("Liked $pair");
     }
     notifyListeners();
   }
