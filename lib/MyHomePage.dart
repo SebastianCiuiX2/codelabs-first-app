@@ -15,12 +15,22 @@ class MyHomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             BigCard(pair: pair),
-            SizedBox(height: 10,),
-            ElevatedButton(
-                onPressed: () {
-                  appState.getNext();
-                },
-                child: Text("Click me"),
+            SizedBox(height: 10),
+            Row(
+              mainAxisSize: MainAxisSize.min,
+
+              children: [
+                ElevatedButton(
+                  onPressed: () {
+                    appState.getNext();
+                  },
+                  child: Text("Click me"),
+                ),
+                ElevatedButton(
+                  onPressed: appState.toggleFavorite,
+                  child: Text("Like"),
+                ),
+              ],
             ),
           ],
         ),
