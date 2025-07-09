@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'MyAppState.dart';
+import 'MyAppState.dart' show MyAppState;
 
 class MyHomePage extends StatelessWidget {
   @override
@@ -12,7 +12,14 @@ class MyHomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             Text('A random idea'),
-            Text(appState.current.asLowerCase)
+            Text(appState.current.asLowerCase),
+
+            ElevatedButton(
+                onPressed: () {
+                  appState.getNext();
+                },
+                child: Text("Click me"),
+            ),
           ],
         ),
       ),
