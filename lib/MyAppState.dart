@@ -13,8 +13,11 @@ class MyAppState extends ChangeNotifier {
   void toggleFavorite() {
     if (favorites.contains(current)) {
       favorites.remove(current);
+      print("Unliked $current");
     } else {
       favorites.add(current);
+      print("Liked $current");
+
     }
   }
 }
