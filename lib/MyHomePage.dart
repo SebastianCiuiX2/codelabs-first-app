@@ -1,19 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'MyAppState.dart' show MyAppState;
+import 'MyAppState.dart';
+import 'BigCard.dart';
 
 class MyHomePage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var appState = context.watch<MyAppState>();
+    var pair = appState.current;
+
     return Scaffold(
       body: Center(
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            Text('A random idea'),
-            Text(appState.current.asLowerCase),
-
+            BigCard(pair: pair),
+            SizedBox(height: 10,),
             ElevatedButton(
                 onPressed: () {
                   appState.getNext();
