@@ -8,18 +8,53 @@ class FavouritesPage extends StatelessWidget {
   Widget build(BuildContext context) {
     var appState = context.watch<MyAppState>();
     var words = appState.favorites;
+    var theme = Theme.of(context);
 
-    return ListView(
+    return Column(
       children: [
-        Padding(
-          padding: const EdgeInsets.all(20),
-          child: Text("Favourite words:"),
-        ),
-        for (var word in words)
-          ListTile(
-            leading: Icon(Icons.favorite),
-            title: Text(word.asLowerCase),
+        Expanded(
+          child: Column(
+            children: [
+              Padding(
+                padding: const EdgeInsets.all(20),
+                child: Text("You have ${words.length} favourite words:"),
+              ),
+              Expanded(
+                child: GridView(
+                  gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+                    maxCrossAxisExtent: 400,
+                    childAspectRatio: 400 / 80,
+                  ),
+                  children: [
+                    for (var word in words)
+                      ListTile(
+                        leading: IconButton(
+                          icon: Icon(Icons.delete),
+                          color: theme.colorScheme.primary,
+                          onPressed: () {
+                            appState.removeFavorite(word);
+                          },
+
+
+                        ),
+                        title: Text(
+                            word.asLowerCase,
+                          semanticsLabel: word.asPascalCase,
+                        ),
+                      ),
+                  ],
+                ),
+              ),
+            ],
           ),
+        ),
+        Align(
+          alignment: FractionalOffset.bottomCenter,
+          child: ElevatedButton(
+            onPressed: appState.clearFavorites,
+            child: Text('Clear favorites'),
+          ),
+        ),
       ],
     );
   }

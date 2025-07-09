@@ -20,4 +20,16 @@ class MyAppState extends ChangeNotifier {
 
     }
   }
+
+  void clearFavorites(){
+    favorites.clear();
+    notifyListeners();
+    print("Emptied the favorites list ");
+  }
+  void removeFavorite(WordPair pair){
+    if(favorites.contains(pair)) {
+      favorites.remove(pair);
+      notifyListeners();
+    }
+  }
 }
