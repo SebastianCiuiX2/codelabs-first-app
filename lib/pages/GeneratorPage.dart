@@ -1,8 +1,8 @@
 import 'package:english_words/src/word_pair.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'MyAppState.dart';
-import 'BigCard.dart';
+import '../MyAppState.dart';
+import '../widgets/BigCard.dart';
 
 class GeneratorPage extends StatelessWidget {
   @override

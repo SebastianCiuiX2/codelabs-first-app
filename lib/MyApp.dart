@@ -1,7 +1,7 @@
 import 'package:codelabs_first_flutter_app/MyAppState.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
-import 'MyHomePage.dart';
+import 'pages/MyHomePage.dart';
 
 
 class MyApp extends StatelessWidget {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 import 'GeneratorPage.dart';
-import 'MyAppState.dart';
+import '../MyAppState.dart';
 
 class MyHomePage extends StatefulWidget {
   @override
